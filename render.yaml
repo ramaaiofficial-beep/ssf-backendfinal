@@ -2,8 +2,8 @@ services:
   - type: web
     name: shree-samrajya-backend
     env: python
-    rootDir: backend
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    pythonVersion: 3.11.9
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PAYPAL_CLIENT_ID
@@ -21,4 +21,3 @@ services:
       - key: ENVIRONMENT
         value: production
     healthCheckPath: /health
-
